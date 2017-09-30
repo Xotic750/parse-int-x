@@ -11,14 +11,26 @@
 
 var nativeParseInt = parseInt;
 var ws = require('white-space-x').string;
+var toStr = require('to-string-x');
 
 var $parseInt;
 if (nativeParseInt(ws + '08') === 8 && nativeParseInt(ws + '0x16') === 22) {
-  $parseInt = nativeParseInt;
+  if (require('has-symbol-support-x')) {
+    if (require('attempt-x')(nativeParseInt, Symbol('')).threw) {
+      $parseInt = nativeParseInt;
+    } else {
+      $parseInt = (function () {
+        return function parseInt(string, radix) {
+          return nativeParseInt(toStr(string), radix);
+        };
+      }());
+    }
+  } else {
+    $parseInt = nativeParseInt;
+  }
 } else {
   $parseInt = (function () {
     var trim = require('trim-x');
-    var toStr = require('to-string-x');
     var castNumber = require('cached-constructors-x').Number;
     var hexRegex = /^[-+]?0[xX]/;
     var test = hexRegex.test;
