@@ -1,6 +1,6 @@
 /**
  * @file Parses a string argument and returns an integer of the specified radix.
- * @version 1.0.0
+ * @version 1.1.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -15,32 +15,20 @@ var toStr = require('to-string-x');
 
 var $parseInt;
 if (nativeParseInt(ws + '08') === 8 && nativeParseInt(ws + '0x16') === 22) {
-  if (require('has-symbol-support-x')) {
-    if (require('attempt-x')(nativeParseInt, Symbol('')).threw) {
-      $parseInt = nativeParseInt;
-    } else {
-      $parseInt = (function () {
-        return function parseInt(string, radix) {
-          return nativeParseInt(toStr(string), radix);
-        };
-      }());
-    }
-  } else {
-    $parseInt = nativeParseInt;
-  }
+  $parseInt = function parseInteger(string, radix) {
+    return nativeParseInt(toStr(string), radix);
+  };
 } else {
-  $parseInt = (function () {
-    var trim = require('trim-x');
-    var castNumber = require('cached-constructors-x').Number;
-    var hexRegex = /^[-+]?0[xX]/;
-    var test = hexRegex.test;
+  var trim = require('trim-x');
+  var castNumber = require('cached-constructors-x').Number;
+  var hexRegex = /^[-+]?0[xX]/;
+  var test = hexRegex.test;
 
-    return function parseInt(string, radix) {
-      var str = trim(toStr(string));
+  $parseInt = function parseInteger(string, radix) {
+    var str = trim(toStr(string));
 
-      return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-    };
-  }());
+    return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
+  };
 }
 
 /**
