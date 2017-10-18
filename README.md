@@ -60,7 +60,7 @@ radix (the base in mathematical numeral systems). (ES2016)
 
 **Example**  
 ```js
-var $parseInt = require('parse-int-x');
+var $parseInt = require('parse-int-x').parseInt2016;
 
 // The following examples all return 15
 $parseInt(' 0xF', 16);
@@ -102,7 +102,7 @@ radix (the base in mathematical numeral systems). (ES2018)
 
 **Example**  
 ```js
-var $parseInt = require('parse-int-x');
+var $parseInt = require('parse-int-x').parseInt2018;
 
 // The following examples all return 15
 $parseInt(' 0xF', 16);
