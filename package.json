@@ -1,6 +1,6 @@
 {
   "name": "parse-int-x",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "homepage": "https://github.com/Xotic750/parse-int-x",
   "author": {
@@ -29,9 +29,9 @@
   },
   "dependencies": {
     "cached-constructors-x": "^1.0.0",
+    "nan-x": "^1.0.0",
     "to-string-x": "^1.4.2",
-    "trim-x": "^2.0.2",
-    "white-space-x": "^2.0.3"
+    "trim-left-x": "^3.0.0"
   },
   "devDependencies": {
     "@xotic750/eslint-config-standard-x": "^2.2.1",
