@@ -1,15 +1,15 @@
 import NAN from 'nan-x';
 import toStr from 'to-string-x';
-import trimLeft, {trimLeft2016} from 'trim-left-x';
-
-const nativeParseInt = parseInt;
+import trimLeft, { trimLeft2016 } from 'trim-left-x';
+var nativeParseInt = parseInt;
 /**  @type {Function} */
-const castNumber = (0).constructor;
-// noinspection JSPotentiallyInvalidConstructorUsage
-const {charAt} = '';
-const hexRegex = /^[-+]?0[xX]/;
-const {test} = hexRegex;
 
+var castNumber = 0 .constructor; // noinspection JSPotentiallyInvalidConstructorUsage
+
+var _ref = '',
+    charAt = _ref.charAt;
+var hexRegex = /^[-+]?0[xX]/;
+var test = hexRegex.test;
 /**
  * This method parses a string argument and returns an integer of the specified
  * radix (the base in mathematical numeral systems). (ES2016).
@@ -27,12 +27,11 @@ const {test} = hexRegex;
  * @returns {number} An integer number parsed from the given string. If the first
  *  character cannot be converted to a number, NaN is returned.
  */
-export function parseInt2016(string, radix) {
-  const str = trimLeft2016(toStr(string));
 
+export function parseInt2016(string, radix) {
+  var str = trimLeft2016(toStr(string));
   return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
 }
-
 /**
  * This method parses a string argument and returns an integer of the specified
  * radix (the base in mathematical numeral systems). (ES2018).
@@ -50,12 +49,15 @@ export function parseInt2016(string, radix) {
  * @returns {number} An integer number parsed from the given string. If the first
  *  character cannot be converted to a number, NaN is returned.
  */
-export default function parseInt2018(string, radix) {
-  const str = trimLeft(toStr(string));
 
-  if (charAt.call(str, 0) === '\u180E') {
+export default function parseInt2018(string, radix) {
+  var str = trimLeft(toStr(string));
+
+  if (charAt.call(str, 0) === "\u180E") {
     return NAN;
   }
 
   return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
 }
+
+//# sourceMappingURL=parse-int-x.esm.js.map
