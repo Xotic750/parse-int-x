@@ -1,6 +1,5 @@
 import $parseInt, {parseInt2016} from 'src/parse-int-x';
 
-/* eslint-disable-next-line compat/compat */
 const hasSymbol = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolIt = hasSymbol ? it : xit;
 
@@ -94,7 +93,7 @@ describe('$parseInt', function() {
 
     ifSymbolIt('should throw for Symbol', function() {
       expect.assertions(2);
-      /* eslint-disable-next-line compat/compat */
+
       const sym = Symbol('foo');
       expect(function() {
         parseInt2016(sym);
@@ -139,9 +138,9 @@ describe('$parseInt', function() {
 
     it('leading whitespace 2016 should return NaN', function() {
       expect.assertions(2);
-      /* eslint-disable-next-line compat/compat */
+
       expect(Number.isNaN($parseInt(`${ws2016}08`))).toBe(true);
-      /* eslint-disable-next-line compat/compat */
+
       expect(Number.isNaN($parseInt(`${ws2016}0x16`))).toBe(true);
     });
 
@@ -182,7 +181,7 @@ describe('$parseInt', function() {
 
     ifSymbolIt('should throw for Symbol', function() {
       expect.assertions(2);
-      /* eslint-disable-next-line compat/compat */
+
       const sym = Symbol('foo');
       expect(function() {
         $parseInt(sym);
