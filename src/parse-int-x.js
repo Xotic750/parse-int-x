@@ -50,7 +50,7 @@ export function parseInt2016(string, radix) {
  * @returns {number} An integer number parsed from the given string. If the first
  *  character cannot be converted to a number, NaN is returned.
  */
-export default function parseInt2018(string, radix) {
+const parseInt2018 = function parseInt2018(string, radix) {
   const str = trimLeft(toStr(string));
 
   if (charAt.call(str, 0) === '\u180E') {
@@ -58,4 +58,6 @@ export default function parseInt2018(string, radix) {
   }
 
   return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-}
+};
+
+export default parseInt2018;

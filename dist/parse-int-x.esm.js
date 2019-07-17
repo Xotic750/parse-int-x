@@ -50,7 +50,7 @@ export function parseInt2016(string, radix) {
  *  character cannot be converted to a number, NaN is returned.
  */
 
-export default function parseInt2018(string, radix) {
+var parseInt2018 = function parseInt2018(string, radix) {
   var str = trimLeft(toStr(string));
 
   if (charAt.call(str, 0) === "\u180E") {
@@ -58,6 +58,8 @@ export default function parseInt2018(string, radix) {
   }
 
   return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-}
+};
+
+export default parseInt2018;
 
 //# sourceMappingURL=parse-int-x.esm.js.map
