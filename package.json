@@ -1,6 +1,6 @@
 {
   "name": "parse-int-x",
-  "version": "3.0.12",
+  "version": "3.0.13",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "homepage": "https://github.com/Xotic750/parse-int-x",
   "author": {
@@ -48,9 +48,9 @@
     "url": "https://github.com/Xotic750/parse-int-x/issues"
   },
   "dependencies": {
-    "nan-x": "^2.0.13",
-    "to-string-x": "^2.0.21",
-    "trim-left-x": "^4.0.13"
+    "nan-x": "^2.0.14",
+    "to-string-x": "^2.0.22",
+    "trim-left-x": "^4.0.14"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
