@@ -24,59 +24,14 @@
 
 Parses a string argument and returns an integer of the specified radix.
 
-- [parse-int-x](#module_parse-int-x)
-  - [`.parseInt2016`](#module_parse-int-x.parseInt2016) ⇒ <code>number</code>
-
-<a name="module_parse-int-x.parseInt2016"></a>
-
-### `parse-int-x.parseInt2016` ⇒ <code>number</code>
-
-This method parses a string argument and returns an integer of the specified
-radix (the base in mathematical numeral systems). (ES2016)
-
-**Kind**: static property of [<code>parse-int-x</code>](#module_parse-int-x)  
-**Returns**: <code>number</code> - An integer number parsed from the given string. If the first
-character cannot be converted to a number, NaN is returned.  
-**Throws**:
-
-- <code>TypeError</code> If target is a Symbol or is not coercible.
-
-| Param  | Type                | Description                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | <code>string</code> | The value to parse. If the string argument is not a string, then it is converted to a string (using the ToString abstract operation). Leading whitespace in the string argument is ignored.                                                                                                                                                                                                                                  |
-| radix  | <code>number</code> | An integer between 2 and 36 that represents the radix (the base in mathematical numeral systems) of the above mentioned string. Specify 10 for the decimal numeral system commonly used by humans. Always specify this parameter to eliminate reader confusion and to guarantee predictable behavior. Different implementations produce different results when a radix is not specified, usually defaulting the value to 10. |
-
-**Example**
-
-```js
-import parseInt2016 from 'parse-int-x';
-
-// The following examples all return 15
-console.log(parseInt2016(' 0xF', 16));
-console.log(parseInt2016(' F', 16));
-console.log(parseInt2016('17', 8));
-console.log(parseInt2016(021, 8));
-console.log(parseInt2016('015', 10)); // $parseInt(015, 10); will return 15
-console.log(parseInt2016(15.99, 10));
-console.log(parseInt2016('15,123', 10));
-console.log(parseInt2016('FXX123', 16));
-console.log(parseInt2016('1111', 2));
-console.log(parseInt2016('15 * 3', 10));
-console.log(parseInt2016('15e2', 10));
-console.log(parseInt2016('15px', 10));
-console.log(parseInt2016('12', 13));
-
-//The following examples all return NaN:
-console.log(parseInt2016('Hello', 8)); // Not a number at all
-console.log(parseInt2016('546', 2)); // Digits are not valid for binary representations
-```
+### `module.exports(string, number)` ⇒ <code>number</code> ⏏
 
 <a name="module_parse-int-x"></a>
 
 ### `parse-int-x` ⇒ <code>number</code>
 
 This method parses a string argument and returns an integer of the specified
-radix (the base in mathematical numeral systems). (ES2018)
+radix (the base in mathematical numeral systems). (ES2019)
 
 **Kind**: static property of [<code>parse-int-x</code>](#module_parse-int-x)  
 **Returns**: <code>number</code> - An integer number parsed from the given string. If the first

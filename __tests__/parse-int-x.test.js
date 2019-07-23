@@ -1,4 +1,4 @@
-import $parseInt, {parseInt2016} from 'src/parse-int-x';
+import $parseInt from 'src/parse-int-x';
 
 const hasSymbol = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolIt = hasSymbol ? it : xit;
@@ -13,96 +13,6 @@ describe('$parseInt', function() {
     it('$parseInt is a function', function() {
       expect.assertions(1);
       expect(typeof $parseInt).toBe('function');
-    });
-
-    it('parseInt2016 is a function', function() {
-      expect.assertions(1);
-      expect(typeof parseInt2016).toBe('function');
-    });
-
-    it('$parseInt is not parseInt2016', function() {
-      expect.assertions(1);
-      expect($parseInt).not.toBe(parseInt2016);
-    });
-  });
-
-  describe('parseInt2016', function() {
-    it('accepts a radix', function() {
-      expect.assertions(35);
-      for (let i = 2; i <= 36; i += 1) {
-        expect(parseInt2016('10', i)).toBe(i);
-      }
-    });
-
-    it('defaults the radix to 10 when the number does not start with 0x or 0X', function() {
-      expect.assertions(4);
-      ['01', '08', '10', '42'].forEach(function(str) {
-        expect(parseInt2016(str)).toBe(parseInt2016(str, 10));
-      });
-    });
-
-    it('defaults the radix to 16 when the number starts with 0x or 0X', function() {
-      expect.assertions(2);
-      expect(parseInt2016('0x16')).toBe(parseInt2016('0x16', 16));
-      expect(parseInt2016('0X16')).toBe(parseInt2016('0X16', 16));
-    });
-
-    it('ignores leading whitespace', function() {
-      expect.assertions(5);
-      expect(parseInt2016('  0x16')).toBe(parseInt2016('0x16', 16));
-      expect(parseInt2016('  42')).toBe(parseInt2016('42', 10));
-      expect(parseInt2016('  08')).toBe(parseInt2016('08', 10));
-      expect(parseInt2016(`${ws2016}08`)).toBe(parseInt2016('08', 10));
-      expect(parseInt2016(`${ws2016}0x16`)).toBe(parseInt2016('0x16', 16));
-    });
-
-    it('defaults the radix properly when not a true number', function() {
-      expect.assertions(2);
-      const fakeZero = {
-        valueOf() {
-          return 0;
-        },
-      };
-
-      expect(parseInt2016('08', fakeZero)).toBe(parseInt2016('08', 10));
-      expect(parseInt2016('0x16', fakeZero)).toBe(parseInt2016('0x16', 16));
-    });
-
-    it('allows sign-prefixed hex values', function() {
-      expect.assertions(4);
-      expect(parseInt2016('-0xF')).toBe(-15);
-      expect(parseInt2016('-0xF', 16)).toBe(-15);
-      expect(parseInt2016('+0xF')).toBe(15);
-      expect(parseInt2016('+0xF', 16)).toBe(15);
-    });
-
-    it('naN parsing', function() {
-      expect.assertions(4);
-      expect(parseInt2016()).toBeNaN();
-      expect(parseInt2016(undefined)).toBeNaN();
-      expect(parseInt2016(null)).toBeNaN();
-      expect(parseInt2016(NaN)).toBeNaN();
-    });
-
-    it('should throw if target is not coercible', function() {
-      expect.assertions(1);
-      expect(function() {
-        parseInt2016(Object.create(null));
-      }).toThrowErrorMatchingSnapshot();
-    });
-
-    ifSymbolIt('should throw for Symbol', function() {
-      expect.assertions(2);
-
-      const sym = Symbol('foo');
-      expect(function() {
-        parseInt2016(sym);
-      }).toThrowErrorMatchingSnapshot();
-
-      const symObj = Object(sym);
-      expect(function() {
-        parseInt2016(Object(symObj));
-      }).toThrowErrorMatchingSnapshot();
     });
   });
 
@@ -136,7 +46,7 @@ describe('$parseInt', function() {
       expect($parseInt(`${ws2018}0x16`)).toBe($parseInt('0x16', 16));
     });
 
-    it('leading whitespace 2016 should return NaN', function() {
+    it('leading whitespace 2018 should return NaN', function() {
       expect.assertions(2);
 
       expect(Number.isNaN($parseInt(`${ws2016}08`))).toBe(true);

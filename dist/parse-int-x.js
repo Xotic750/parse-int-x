@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-07-22T12:18:41.845Z",
+  "date": "2019-07-23T23:47:07.697Z",
   "describe": "",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "file": "parse-int-x.js",
-  "hash": "92dd2e7716236d197b26",
+  "hash": "33e8458e090c69abe27a",
   "license": "MIT",
-  "version": "3.0.18"
+  "version": "3.0.19"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -677,37 +677,24 @@ var string2016 = stringES2016;
 
 var EMPTY_STRING = '';
 var RegExpCtr = /none/.constructor;
-var reLeft2016 = new RegExpCtr("^[".concat(string2016, "]+"));
 var reLeft = new RegExpCtr("^[".concat(white_space_x_esm, "]+"));
 var replace = EMPTY_STRING.replace;
 /**
- * This method removes whitespace from the left end of a string. (ES2016).
+ * This method removes whitespace from the start of a string. (ES2019).
  *
  * @param {string} [string] - The string to trim the left end whitespace from.
  * @throws {TypeError} If string is null or undefined or not coercible.
  * @returns {string} The left trimmed string.
  */
 
-function trimLeft2016(string) {
-  return replace.call(require_coercible_to_string_x_esm(string), reLeft2016, EMPTY_STRING);
-}
-/**
- * This method removes whitespace from the left end of a string. (ES2018).
- *
- * @param {string} [string] - The string to trim the left end whitespace from.
- * @throws {TypeError} If string is null or undefined or not coercible.
- * @returns {string} The left trimmed string.
- */
-
-var trim_left_x_esm_trimLeft2018 = function trimLeft2018(string) {
+var trim_left_x_esm_trimStart = function trimStart(string) {
   return replace.call(require_coercible_to_string_x_esm(string), reLeft, EMPTY_STRING);
 };
 
-/* harmony default export */ var trim_left_x_esm = (trim_left_x_esm_trimLeft2018);
+/* harmony default export */ var trim_left_x_esm = (trim_left_x_esm_trimStart);
 
 
 // CONCATENATED MODULE: ./dist/parse-int-x.esm.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseInt2016", function() { return parseInt2016; });
 
 
 
@@ -722,7 +709,7 @@ var hexRegex = /^[-+]?0[xX]/;
 var test = hexRegex.test;
 /**
  * This method parses a string argument and returns an integer of the specified
- * radix (the base in mathematical numeral systems). (ES2016).
+ * radix (the base in mathematical numeral systems). (ES2019).
  *
  * @param {string} [string] - The value to parse. If the string argument is not a
  *  string, then it is converted to a string (using the ToString abstract
@@ -738,29 +725,7 @@ var test = hexRegex.test;
  *  character cannot be converted to a number, NaN is returned.
  */
 
-function parseInt2016(string, radix) {
-  var str = trimLeft2016(to_string_x_esm(string));
-  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
-}
-/**
- * This method parses a string argument and returns an integer of the specified
- * radix (the base in mathematical numeral systems). (ES2018).
- *
- * @param {string} [string] - The value to parse. If the string argument is not a
- *  string, then it is converted to a string (using the ToString abstract
- *  operation). Leading whitespace in the string argument is ignored.
- * @param {number} [radix] - An integer between 2 and 36 that represents the radix
- *  (the base in mathematical numeral systems) of the above mentioned string.
- *  Specify 10 for the decimal numeral system commonly used by humans. Always
- *  specify this parameter to eliminate reader confusion and to guarantee
- *  predictable behavior. Different implementations produce different results
- *  when a radix is not specified, usually defaulting the value to 10.
- * @throws {TypeError} If target is a Symbol or is not coercible.
- * @returns {number} An integer number parsed from the given string. If the first
- *  character cannot be converted to a number, NaN is returned.
- */
-
-var parse_int_x_esm_parseInt2018 = function parseInt2018(string, radix) {
+var parse_int_x_esm_$parseInt = function $parseInt(string, radix) {
   var str = trim_left_x_esm(to_string_x_esm(string));
 
   if (charAt.call(str, 0) === "\u180E") {
@@ -770,7 +735,7 @@ var parse_int_x_esm_parseInt2018 = function parseInt2018(string, radix) {
   return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
 };
 
-/* harmony default export */ var parse_int_x_esm = __webpack_exports__["default"] = (parse_int_x_esm_parseInt2018);
+/* harmony default export */ var parse_int_x_esm = __webpack_exports__["default"] = (parse_int_x_esm_$parseInt);
 
 
 

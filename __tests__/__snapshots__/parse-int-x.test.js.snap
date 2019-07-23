@@ -5,9 +5,3 @@ exports[`$parseInt $parseInt should throw for Symbol 1`] = `"Cannot convert a Sy
 exports[`$parseInt $parseInt should throw for Symbol 2`] = `"Cannot convert a Symbol value to a string"`;
 
 exports[`$parseInt $parseInt should throw if target is not coercible 1`] = `"Cannot convert object to primitive value"`;
-
-exports[`$parseInt parseInt2016 should throw for Symbol 1`] = `"Cannot convert a Symbol value to a string"`;
-
-exports[`$parseInt parseInt2016 should throw for Symbol 2`] = `"Cannot convert a Symbol value to a string"`;
-
-exports[`$parseInt parseInt2016 should throw if target is not coercible 1`] = `"Cannot convert object to primitive value"`;
