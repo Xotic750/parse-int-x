@@ -1,6 +1,6 @@
 {
   "name": "parse-int-x",
-  "version": "3.0.19",
+  "version": "3.0.20",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "homepage": "https://github.com/Xotic750/parse-int-x",
   "author": {
@@ -21,6 +21,7 @@
   ],
   "module": "dist/parse-int-x.esm.js",
   "main": "dist/parse-int-x.js",
+  "jsdelivr": "dist/parse-int-x.min.js",
   "scripts": {
     "build:esm": "mkdirp dist && babel -s true --env-name esm src/parse-int-x.js -o dist/parse-int-x.esm.js",
     "build:base": "webpack --bail --progress --profile --colors",
@@ -48,9 +49,9 @@
     "url": "https://github.com/Xotic750/parse-int-x/issues"
   },
   "dependencies": {
-    "nan-x": "^2.0.20",
-    "to-string-x": "^2.0.28",
-    "trim-left-x": "^4.0.21"
+    "nan-x": "^2.0.21",
+    "to-string-x": "^2.0.29",
+    "trim-left-x": "^4.0.22"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
