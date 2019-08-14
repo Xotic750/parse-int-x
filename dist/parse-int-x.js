@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-13T12:52:41.371Z",
+  "date": "2019-08-14T13:46:01.951Z",
   "describe": "",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "file": "parse-int-x.js",
-  "hash": "93166ab4ca91376dd6ab",
+  "hash": "ca2882b9180d04ecec52",
   "license": "MIT",
-  "version": "3.0.26"
+  "version": "3.1.0"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -303,7 +303,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @type number
  */
-/* harmony default export */ var nan_x_esm = (0 / 0);
+var constantNAN = 0 / 0;
+/* harmony default export */ var nan_x_esm = (constantNAN);
 
 
 // EXTERNAL MODULE: ./node_modules/is-symbol/index.js
