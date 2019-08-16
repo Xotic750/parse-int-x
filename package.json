@@ -50,6 +50,7 @@
     "url": "https://github.com/Xotic750/parse-int-x/issues"
   },
   "dependencies": {
+    "simple-methodize-x": "^1.0.2",
     "nan-x": "^2.2.0",
     "to-string-x": "^2.1.0",
     "trim-left-x": "^4.1.0"

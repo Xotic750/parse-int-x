@@ -1,15 +1,15 @@
 import NAN from 'nan-x';
 import toStr from 'to-string-x';
 import trimLeft from 'trim-left-x';
+import methodize from 'simple-methodize-x';
 var nativeParseInt = parseInt;
 /**  @type {Function} */
 
-var castNumber = 0 .constructor; // noinspection JSPotentiallyInvalidConstructorUsage
-
-var _ref = '',
-    charAt = _ref.charAt;
+var castNumber = 0 .constructor;
+var BAD_CHAR = "\u180E";
+var methodizedCharAt = methodize(BAD_CHAR.charAt);
 var hexRegex = /^[-+]?0[xX]/;
-var test = hexRegex.test;
+var methodizedTest = methodize(hexRegex.test);
 /**
  * This method parses a string argument and returns an integer of the specified
  * radix (the base in mathematical numeral systems). (ES2019).
@@ -31,11 +31,11 @@ var test = hexRegex.test;
 var $parseInt = function $parseInt(string, radix) {
   var str = trimLeft(toStr(string));
 
-  if (charAt.call(str, 0) === "\u180E") {
+  if (methodizedCharAt(str, 0) === BAD_CHAR) {
     return NAN;
   }
 
-  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
+  return nativeParseInt(str, castNumber(radix) || (methodizedTest(hexRegex, str) ? 16 : 10));
 };
 
 export default $parseInt;

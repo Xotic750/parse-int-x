@@ -1,14 +1,15 @@
 import NAN from 'nan-x';
 import toStr from 'to-string-x';
 import trimLeft from 'trim-left-x';
+import methodize from 'simple-methodize-x';
 
 const nativeParseInt = parseInt;
 /**  @type {Function} */
 const castNumber = (0).constructor;
-// noinspection JSPotentiallyInvalidConstructorUsage
-const {charAt} = '';
+const BAD_CHAR = '\u180E';
+const methodizedCharAt = methodize(BAD_CHAR.charAt);
 const hexRegex = /^[-+]?0[xX]/;
-const {test} = hexRegex;
+const methodizedTest = methodize(hexRegex.test);
 
 /**
  * This method parses a string argument and returns an integer of the specified
@@ -30,11 +31,11 @@ const {test} = hexRegex;
 const $parseInt = function $parseInt(string, radix) {
   const str = trimLeft(toStr(string));
 
-  if (charAt.call(str, 0) === '\u180E') {
+  if (methodizedCharAt(str, 0) === BAD_CHAR) {
     return NAN;
   }
 
-  return nativeParseInt(str, castNumber(radix) || (test.call(hexRegex, str) ? 16 : 10));
+  return nativeParseInt(str, castNumber(radix) || (methodizedTest(hexRegex, str) ? 16 : 10));
 };
 
 export default $parseInt;
