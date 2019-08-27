@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-20T19:10:11.901Z",
+  "date": "2019-08-27T19:51:36.566Z",
   "describe": "",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "file": "parse-int-x.js",
