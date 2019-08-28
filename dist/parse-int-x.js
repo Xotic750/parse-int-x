@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2017",
-  "date": "2019-08-28T15:00:47.168Z",
+  "date": "2019-08-28T16:53:59.078Z",
   "describe": "",
   "description": "Parses a string argument and returns an integer of the specified radix.",
   "file": "parse-int-x.js",
   "hash": "fed70d3a27d913c18570",
   "license": "MIT",
-  "version": "3.2.1"
+  "version": "3.2.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
